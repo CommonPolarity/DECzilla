@@ -1,0 +1,13 @@
+flask
+EASGen-Remastered
+EAS2Text-Remastered
+requests
+xmltodict
+ffmpeg-python
+numpy
+sounddevice
+soundfile
+pydub
+scipy
+pytz
+audioop-lts
