@@ -42,6 +42,8 @@ else
     exit 1
 fi
 echo "All requirements successfully installed!"
+echo "Press any key to continue installation."
+read -s -n 1
 
 # Optional software (Thunar)
 clear
@@ -63,6 +65,8 @@ if [[ "$opt" == "y" ]]; then
 else
     echo "Thunar not installed."
 fi
+echo "Press any key to continue installation."
+read -s -n 1
 
 # Required (but installation optional) software (Git)
 clear
@@ -86,6 +90,8 @@ if [[ "$git" == "y" ]]; then
 else
     echo "Git not installed."
 fi
+echo "Press any key to continue installation."
+read -s -n 1
 
 
 # QDEC Installation
@@ -141,6 +147,32 @@ read -s -n 1
 
 sudo cp "$SCRIPT_DIR/.xinitrc" "$HOME/.xinitrc"
 echo "X Server configuration installation complete!"
+echo "Press any key to continue installation."
+read -s -n 1
+
+# ASCII Option
+clear
+echo "======================================================================"
+echo "ASCII ART (OPTIONAL, FOR NOVELTY)"
+echo "======================================================================"
+echo "If you would like to, you are able to print out ASCII art at login that says 'DECzilla'."
+read -p "Would you like to enable this? This will not change anything functionally. [y/n]: " ascii
+ascii="${ascii,,}"
+
+if [[ "$ascii" == "y" ]]; then
+    echo "echo \" __/\\\\\\\\\\\\_____/\\\\\\\\\\\\\\\________/\\\\\\\\\______________________/\\\\\\_____/\\\\\\___________________        \"" >> "$HOME/.profile"
+    echo "echo \" _\/\\\////////\\\__\/\\\///////////______/\\\////////______________________\////\\\____\////\\\___________________       \"" >> "$HOME/.profile"
+    echo "echo \"  _\/\\\______\//\\\_\/\\\_______________/\\\/__________________________/\\\____\/\\\_______\/\\\___________________      \"" >> "$HOME/.profile"
+    echo "echo \"   _\/\\\_______\/\\\_\/\\\\\\\\\\\______/\\\______________/\\\\\\\\\\\_\///_____\/\\\_______\/\\\_____/\\\\\\\\\____     \"" >> "$HOME/.profile"
+    echo "echo \"    _\/\\\_______\/\\\_\/\\\///////______\/\\\_____________\///////\\\/___/\\\____\/\\\_______\/\\\____\////////\\\___    \"" >> "$HOME/.profile"
+    echo "echo \"     _\/\\\_______\/\\\_\/\\\_____________\//\\\_________________/\\\/____\/\\\____\/\\\_______\/\\\______/\\\\\\\\\\__   \"" >> "$HOME/.profile"
+    echo "echo \"      _\/\\\_______/\\\__\/\\\______________\///\\\_____________/\\\/______\/\\\____\/\\\_______\/\\\_____/\\\/////\\\__  \"" >> "$HOME/.profile"
+    echo "echo \"       _\/\\\\\\\\\\\\\/___\/\\\\\\\\\\\\\\\____\////\\\\\\\\\__/\\\\\\\\\\\_\/\\\__/\\\\\\\\\__/\\\\\\\\\_\//\\\\\\\\/\\_ \"" >> "$HOME/.profile"
+    echo "echo \"        _\////////////_____\///////////////________\/////////__\///////////__\///__\/////////__\/////////___\////////\//__ \"" >> "$HOME/.profile"
+    echo "ASCII art added to ~/.profile. It will show up next time you log in!"
+else
+    echo "ASCII art not enabled."
+fi
 echo "Press any key to continue installation."
 read -s -n 1
 
