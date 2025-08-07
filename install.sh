@@ -126,6 +126,7 @@ read -p "Open port? [y/n]: " port
 port="${port,,}"
 
 if [[ "$port" == "y" ]]; then
+    sudo ufw enable
     sudo ufw allow 5000
     echo "Port opened successfully!"
 elif [[ "$port" == "n" ]]; then
