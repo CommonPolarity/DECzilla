@@ -201,7 +201,7 @@ fi
 echo "Press any key to continue installation."
 read -s -n 1
 
-# Final Message and Restart
+# Final message and restart
 clear
 echo "======================================================================"
 echo "INSTALLATION COMPLETE"
