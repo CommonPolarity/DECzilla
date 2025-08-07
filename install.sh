@@ -31,12 +31,12 @@ os=$(echo "$os" | tr '[:upper:]' '[:lower:]')
 
 # Installation process
 if [[ "$os" == "arch" ]]; then
-    sudo pacman -Syu --noconfirm && sudo pacman -S xorg-server xfwm4 xinit xfce4-terminal git firefox python python-pip --noconfirm
+    sudo pacman -Syu --noconfirm && sudo pacman -S xorg-server xfwm4 xinit xfce4-terminal firefox python python-pip --noconfirm
 elif [[ "$os" == "fedora" ]]; then
-    sudo dnf update && sudo dnf install xorg-x11-server-Xorg xorg-x11-xinit xfwm4 xfce4-terminal git-all firefox python3.13 -y
+    sudo dnf update && sudo dnf install xorg-x11-server-Xorg xorg-x11-xinit xfwm4 xfce4-terminal firefox python3.13 -y
     python3.13 -m ensurepip --user
 elif [[ "$os" == "ubuntu" ]]; then
-    sudo apt update && sudo apt install xorg xfwm4 xinit xfce4-terminal git firefox python3.13 python3-pip -y
+    sudo apt update && sudo apt install xorg xfwm4 xinit xfce4-terminal firefox python3.13 python3-pip -y
 else
     echo "Unsupported OS. Setup is now exiting."
     exit 1
@@ -76,11 +76,11 @@ git="${git,,}" # convert to lowercase
 
 if [[ "$git" == "y" ]]; then
     if [[ "$os" == "arch" ]]; then
-        sudo pacman -S thunar --noconfirm
+        sudo pacman -S git --noconfirm
     elif [[ "$os" == "fedora" ]]; then
-        sudo dnf install thunar -y
+        sudo dnf install git-all -y
     elif [[ "$os" == "ubuntu" ]]; then
-        sudo apt install thunar -y
+        sudo apt install git -y
     fi
     echo "Git successfully installed."
 else
