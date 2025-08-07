@@ -41,9 +41,13 @@ else
     echo "Unsupported OS. Setup is now exiting."
     exit 1
 fi
+echo "All requirements successfully installed!"
 
 # Optional software (Thunar)
-echo "All requirements successfully installed!"
+clear
+echo "======================================================================"
+echo "THUNAR INSTALLATION (OPTIONAL)"
+echo "======================================================================"
 read -p "Would you like to install Thunar additionally for easier file management in 'backend' mode? [y/n]: " opt
 opt="${opt,,}" # convert to lowercase
 
@@ -57,8 +61,32 @@ if [[ "$opt" == "y" ]]; then
     fi
     echo "Thunar also installed."
 else
-    echo "Nothing else installed."
+    echo "Thunar not installed."
 fi
+
+# Required (but installation optional) software (Git)
+clear
+echo "======================================================================"
+echo "GIT INSTALLATION (SEMI-OPTIONAL)"
+echo "======================================================================"
+echo "Would you like to install Git from the installer if you don't have it already?"
+read -p "This is a required piece of software for the installer to work properly, so please choose Y if you haven't installed [y/n]: " git
+
+git="${git,,}" # convert to lowercase
+
+if [[ "$git" == "y" ]]; then
+    if [[ "$os" == "arch" ]]; then
+        sudo pacman -S thunar --noconfirm
+    elif [[ "$os" == "fedora" ]]; then
+        sudo dnf install thunar -y
+    elif [[ "$os" == "ubuntu" ]]; then
+        sudo apt install thunar -y
+    fi
+    echo "Git successfully installed."
+else
+    echo "Git not installed."
+fi
+
 
 # QDEC Installation
 clear
